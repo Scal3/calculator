@@ -49,8 +49,8 @@
   align-items: flex-end;
   background-color: var(--screen-color);
   border-top: 5px solid var(--border-screen-color);
-  border-left: 5px solid var(--border-screen-color);
-  border-right: 5px solid var(--border-screen-color);
+  border-left: 10px solid var(--border-screen-color);
+  border-right: 10px solid var(--border-screen-color);
   border-bottom: 10px solid var(--border-screen-color);
 
 }
