@@ -6,6 +6,7 @@
   --symbols-color: #172623;
   --buttons-color: #1D1D1D;
   --button-c-color: #602233;
+  --number-on-button-color: #fff;
 
   --symbols-font-size: 2em;
 }
@@ -67,7 +68,7 @@
 
 .calculator__button {
   background-color: var(--buttons-color);
-  color: #fff;
+  color: var(--number-on-button-color);
   cursor: pointer;
   border: none;
 }
