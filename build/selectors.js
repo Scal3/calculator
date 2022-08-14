@@ -19,6 +19,8 @@ const minus = calcContainer.querySelector('.minus');
 const multiply = calcContainer.querySelector('.multiply');
 const divide = calcContainer.querySelector('.divide');
 const equals = calcContainer.querySelector('.grid-equals');
+const allButtons = calcContainer.querySelectorAll('.calculator__button');
+const screen = calcContainer.querySelector('.calculator__screen-symbols');
 const buttons = {
     one: oneNumber,
     two: twoNumber,
@@ -37,5 +39,6 @@ const buttons = {
     multiply: multiply,
     divide: divide,
     equals: equals,
+    allButtons: allButtons
 };
-export { buttons };
+export { buttons, screen };

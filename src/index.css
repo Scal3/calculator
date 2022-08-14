@@ -7,6 +7,7 @@
   --buttons-color: #1D1D1D;
   --button-c-color: #602233;
   --number-on-button-color: #fff;
+  --button-shadow-color: #000;
 
   --symbols-font-size: 2em;
 }
@@ -73,6 +74,11 @@
   border: none;
   border-radius: 5px;
   font-size: var(--symbols-font-size);
+  box-shadow: 1px 1px 5px var(--button-shadow-color);
+}
+
+.calculator__button_without_shadow {
+  box-shadow: none;
 }
 
 .calculator__button:hover {

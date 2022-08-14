@@ -14,15 +14,18 @@ const sevenNumber: Element | null = calcContainer.querySelector('.seven');
 const eightNumber: Element | null = calcContainer.querySelector('.eight');
 const nineNumber: Element | null = calcContainer.querySelector('.nine');
 const zeroNumber: Element | null = calcContainer.querySelector('.zero');
-
 const dot: Element | null = calcContainer.querySelector('.dot');
 const buttonC: Element | null = calcContainer.querySelector('.button-c');
-
 const plus: Element | null = calcContainer.querySelector('.plus');
 const minus: Element | null = calcContainer.querySelector('.minus');
 const multiply: Element | null = calcContainer.querySelector('.multiply');
 const divide: Element | null = calcContainer.querySelector('.divide'); 
 const equals: Element | null = calcContainer.querySelector('.grid-equals'); 
+const allButtons = calcContainer.querySelectorAll('.calculator__button');
+
+const screen: Element | null = calcContainer.querySelector('.calculator__screen-symbols');
+
+
 
 const buttons = {
   one: oneNumber,
@@ -42,9 +45,10 @@ const buttons = {
   multiply: multiply,
   divide: divide,
   equals: equals,
+  allButtons: allButtons
 }
 
 
 export {
-  buttons
+  buttons, screen
 }
