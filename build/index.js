@@ -1,3 +1,6 @@
-"use strict";
-const test = document.querySelector('.calculator');
-console.log(test);
+import { playSoundClick } from "./utils";
+window.addEventListener('mouseup', (event) => {
+    if (event.target.classList.contains('calculator__button')) {
+        playSoundClick();
+    }
+});

@@ -1,5 +1,9 @@
+import { buttons } from "./selectors";
+import { playSoundClick } from "./utils";
 
 
-const test: Element | null = document.querySelector('.calculator');
-
-console.log(test);
+window.addEventListener('mouseup', (event: any) => {
+  if (event.target.classList.contains('calculator__button')) {
+    playSoundClick();
+  }
+});
