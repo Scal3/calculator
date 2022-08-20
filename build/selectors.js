@@ -1,6 +1,6 @@
 const calcContainer = document.querySelector('.calculator');
 if (!calcContainer) {
-    throw new Error('lol we are missing the container');
+    throw new Error('lol, we lost the container');
 }
 const oneNumber = calcContainer.querySelector('.one');
 const twoNumber = calcContainer.querySelector('.two');

@@ -1,7 +1,7 @@
 const calcContainer: Element | null = document.querySelector('.calculator');
 
 if(!calcContainer) {
-  throw new Error('lol we are missing the container');
+  throw new Error('lol, we lost the container');
 }
 
 const oneNumber: Element | null = calcContainer.querySelector('.one');
