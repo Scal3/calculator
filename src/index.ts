@@ -1,6 +1,7 @@
 import { buttons, screen } from "./selectors.js";
 import { playSoundClick } from "./utils.js";
 import { calcValue, handleClean, handleNumberClick } from './numbers.js';
+import { Strings } from "./constants.js";
 
 const setInitialScreenValue = () => {
   if (!screen) {
@@ -33,18 +34,25 @@ window.addEventListener('mousedown', (event: any) => {
 });
 
 
-buttons.one?.addEventListener('click', () => handleNumberClick(screen, '1'));
-buttons.two?.addEventListener('click', () => handleNumberClick(screen, '2'));
-buttons.three?.addEventListener('click', () => handleNumberClick(screen, '3'));
-buttons.four?.addEventListener('click', () => handleNumberClick(screen, '4'));
-buttons.five?.addEventListener('click', () => handleNumberClick(screen, '5'));
-buttons.six?.addEventListener('click', () => handleNumberClick(screen, '6'));
-buttons.seven?.addEventListener('click', () => handleNumberClick(screen, '7'));
-buttons.eight?.addEventListener('click', () => handleNumberClick(screen, '8'));
-buttons.nine?.addEventListener('click', () => handleNumberClick(screen, '9'));
-buttons.zero?.addEventListener('click', () => handleNumberClick(screen, '0'));
+buttons.one?.addEventListener('click', () => handleNumberClick(screen, Strings.ONE));
+buttons.two?.addEventListener('click', () => handleNumberClick(screen, Strings.TWO));
+buttons.three?.addEventListener('click', () => handleNumberClick(screen, Strings.THREE));
+buttons.four?.addEventListener('click', () => handleNumberClick(screen, Strings.FOUR));
+buttons.five?.addEventListener('click', () => handleNumberClick(screen, Strings.FIVE));
+buttons.six?.addEventListener('click', () => handleNumberClick(screen, Strings.SIX));
+buttons.seven?.addEventListener('click', () => handleNumberClick(screen, Strings.SEVEN));
+buttons.eight?.addEventListener('click', () => handleNumberClick(screen, Strings.EIGHT));
+buttons.nine?.addEventListener('click', () => handleNumberClick(screen, Strings.NINE));
+buttons.zero?.addEventListener('click', () => handleNumberClick(screen, Strings.ZERO));
 
 buttons.c?.addEventListener('click', () => handleClean(screen));
+// buttons.dot?.addEventListener('click', () => handleClean(screen)); // will think about how it work...
+
+
+// buttons.plus?.addEventListener('click', () => handleNumberClick(screen, '7'));
+// buttons.minus?.addEventListener('click', () => handleNumberClick(screen, '8'));
+// buttons.multiply?.addEventListener('click', () => handleNumberClick(screen, '9'));
+// buttons.divide?.addEventListener('click', () => handleNumberClick(screen, '0'));
 
 
 setInitialScreenValue();

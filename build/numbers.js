@@ -1,9 +1,10 @@
+import { Numbers, Strings } from './constants.js';
 let calcValue = '0';
 const handleNumberClick = (screenSelector, numberValue) => {
     if (!screenSelector) {
         throw new Error('kek');
     }
-    if (Number(calcValue) <= 0) {
+    if (Number(calcValue) <= Numbers.ZERO) {
         calcValue = numberValue;
         screenSelector.textContent = String(calcValue);
         return;
@@ -15,7 +16,7 @@ const handleClean = (screenSelector) => {
     if (!screenSelector) {
         throw new Error('kek');
     }
-    calcValue = `0`;
+    calcValue = Strings.ZERO;
     screenSelector.textContent = String(calcValue);
 };
 export { handleNumberClick, handleClean, calcValue };
