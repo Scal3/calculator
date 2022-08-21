@@ -5,6 +5,15 @@ const playSoundClick = () => {
   audio.play();
 }
 
+const setInitialScreenValue = (screen: Element | null, calcValue: string) => {
+  if (!screen) {
+    throw new Error('kek');
+  }
+  
+  screen.textContent = calcValue;
+}
+
 export {
   playSoundClick,
+  setInitialScreenValue
 }

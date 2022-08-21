@@ -1,14 +1,8 @@
 var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 import { buttons, screen } from "./selectors.js";
-import { playSoundClick } from "./utils.js";
+import { playSoundClick, setInitialScreenValue } from "./utils.js";
 import { calcValue, handleClean, handleNumberClick } from './numbers.js';
 import { Strings } from "./constants.js";
-const setInitialScreenValue = () => {
-    if (!screen) {
-        throw new Error('kek');
-    }
-    screen.textContent = String(calcValue);
-};
 // MOUSE UP
 window.addEventListener('mouseup', (event) => {
     if (event.target.classList.contains('calculator__button')) {
@@ -42,4 +36,4 @@ window.addEventListener('mousedown', (event) => {
 // buttons.minus?.addEventListener('click', () => handleNumberClick(screen, '8'));
 // buttons.multiply?.addEventListener('click', () => handleNumberClick(screen, '9'));
 // buttons.divide?.addEventListener('click', () => handleNumberClick(screen, '0'));
-setInitialScreenValue();
+setInitialScreenValue(screen, calcValue);

@@ -4,4 +4,10 @@ const playSoundClick = () => {
     audio.volume = 0.1;
     audio.play();
 };
-export { playSoundClick, };
+const setInitialScreenValue = (screen, calcValue) => {
+    if (!screen) {
+        throw new Error('kek');
+    }
+    screen.textContent = calcValue;
+};
+export { playSoundClick, setInitialScreenValue };

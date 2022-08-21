@@ -1,15 +1,7 @@
 import { buttons, screen } from "./selectors.js";
-import { playSoundClick } from "./utils.js";
+import { playSoundClick, setInitialScreenValue } from "./utils.js";
 import { calcValue, handleClean, handleNumberClick } from './numbers.js';
 import { Strings } from "./constants.js";
-
-const setInitialScreenValue = () => {
-  if (!screen) {
-    throw new Error('kek');
-  }
-  
-  screen.textContent = String(calcValue);
-}
 
 
 // MOUSE UP
@@ -55,4 +47,4 @@ buttons.c?.addEventListener('click', () => handleClean(screen));
 // buttons.divide?.addEventListener('click', () => handleNumberClick(screen, '0'));
 
 
-setInitialScreenValue();
+setInitialScreenValue(screen, calcValue);
