@@ -1,41 +1,15 @@
 import { buttons, screen } from "./selectors.js";
 import { playSoundClick } from "./utils.js";
+import { calcValue, handleClean, handleNumberClick } from './numbers.js';
 
-let calcValue = '0';
-
-if (!screen) {
-  throw new Error('kek');
+const setInitialScreenValue = () => {
+  if (!screen) {
+    throw new Error('kek');
+  }
+  
+  screen.textContent = String(calcValue);
 }
 
-screen.textContent = String(calcValue);
-
-// const execute = (value: string) => {
-//   eval(value);
-// }
-
-// const addValue = (initialValue: string, value: string) => {
-//   initialValue + value;
-// }
-
-const getFirstValue = () => {
-
-}
-
-const addOperator = () => {
-
-}
-
-const getSecondValue = () => {
-
-}
-
-const execute = () => {
-
-}
-
-const resetInitialValue = () => {
-  calcValue = '0';
-}
 
 // MOUSE UP
 window.addEventListener('mouseup', (event: any) => {
@@ -49,15 +23,6 @@ window.addEventListener('mouseup', (event: any) => {
     button.classList.remove('calculator__button_without_shadow');
   });
 
-
-  // if (event.target.classList.contains('grid-equals')) {
-  //   execute(initialValue);
-  // }
-
-  // if (event.target.classList.contains('one')) {
-  //   const value = '1';
-  //   addValue(initialValue, value);
-  // }
 });
 
 // MOUSE DOWN
@@ -66,35 +31,6 @@ window.addEventListener('mousedown', (event: any) => {
     event.target.classList.add('calculator__button_without_shadow');
   }
 });
-
-
-
-
-
-const handleNumberClick = (screenSelector: Element | null, numberValue: string): void => {
-  if (!screenSelector) {
-    throw new Error('kek');
-  }
-
-  if(Number(calcValue) <= 0) {
-    calcValue = numberValue;
-    screenSelector.textContent = String(calcValue);
-    return;
-  }
-
-  calcValue = `${calcValue}${numberValue}`;
-  screenSelector.textContent = String(calcValue);
-}
-
-const handleClean = (screenSelector: Element | null): void => {
-  if (!screenSelector) {
-    throw new Error('kek');
-  }
-
-  calcValue = `0`;
-  screenSelector.textContent = String(calcValue);
-}
-
 
 
 buttons.one?.addEventListener('click', () => handleNumberClick(screen, '1'));
@@ -111,5 +47,4 @@ buttons.zero?.addEventListener('click', () => handleNumberClick(screen, '0'));
 buttons.c?.addEventListener('click', () => handleClean(screen));
 
 
-
-
+setInitialScreenValue();
