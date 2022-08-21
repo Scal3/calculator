@@ -1,11 +1,32 @@
 import { buttons, screen } from "./selectors.js";
 import { playSoundClick, setInitialScreenValue } from "./utils.js";
-import { calcValue, handleClean, handleNumberClick } from './numbers.js';
-import { Strings } from "./constants.js";
+import { convertNumberValue, cleanValue } from './modules/numbers.js';
+import { Errors, Strings } from "./constants.js";
+
+let calcValue = '0';
 
 
-// MOUSE UP
-window.addEventListener('mouseup', (event: any) => {
+const handleNumberClick = (numberValue: string) => {
+  if(!screen) {
+    throw new Error(Errors.SCREEN_IS_LOST);
+  }
+
+  const value = convertNumberValue(calcValue, numberValue);
+  calcValue = value;
+  screen.textContent = calcValue;
+}
+
+const handleCleanClick = () => {
+  if(!screen) {
+    throw new Error(Errors.SCREEN_IS_LOST);
+  }
+
+  const zero = cleanValue(calcValue);
+  calcValue = zero;
+  screen.textContent = calcValue;
+}
+
+const handleMouseUp = (event: any) => {
   if (event.target.classList.contains('calculator__button')) {
     // Fix bug with no-sound event, when mouseup is outside button
     playSoundClick();
@@ -15,29 +36,33 @@ window.addEventListener('mouseup', (event: any) => {
   buttons.allButtons.forEach(button => {
     button.classList.remove('calculator__button_without_shadow');
   });
+}
 
-});
-
-// MOUSE DOWN
-window.addEventListener('mousedown', (event: any) => {
+const handleMouseDown = (event: any) => {
   if (event.target.classList.contains('calculator__button')) {
     event.target.classList.add('calculator__button_without_shadow');
   }
-});
+}
 
 
-buttons.one?.addEventListener('click', () => handleNumberClick(screen, Strings.ONE));
-buttons.two?.addEventListener('click', () => handleNumberClick(screen, Strings.TWO));
-buttons.three?.addEventListener('click', () => handleNumberClick(screen, Strings.THREE));
-buttons.four?.addEventListener('click', () => handleNumberClick(screen, Strings.FOUR));
-buttons.five?.addEventListener('click', () => handleNumberClick(screen, Strings.FIVE));
-buttons.six?.addEventListener('click', () => handleNumberClick(screen, Strings.SIX));
-buttons.seven?.addEventListener('click', () => handleNumberClick(screen, Strings.SEVEN));
-buttons.eight?.addEventListener('click', () => handleNumberClick(screen, Strings.EIGHT));
-buttons.nine?.addEventListener('click', () => handleNumberClick(screen, Strings.NINE));
-buttons.zero?.addEventListener('click', () => handleNumberClick(screen, Strings.ZERO));
+// MOUSE UP
+window.addEventListener('mouseup', handleMouseUp);
 
-buttons.c?.addEventListener('click', () => handleClean(screen));
+// MOUSE DOWN
+window.addEventListener('mousedown', handleMouseDown);
+
+buttons.one?.addEventListener('click', () => handleNumberClick(Strings.ONE));
+buttons.two?.addEventListener('click', () => handleNumberClick(Strings.TWO));
+buttons.three?.addEventListener('click', () => handleNumberClick(Strings.THREE));
+buttons.four?.addEventListener('click', () => handleNumberClick(Strings.FOUR));
+buttons.five?.addEventListener('click', () => handleNumberClick(Strings.FIVE));
+buttons.six?.addEventListener('click', () => handleNumberClick(Strings.SIX));
+buttons.seven?.addEventListener('click', () => handleNumberClick(Strings.SEVEN));
+buttons.eight?.addEventListener('click', () => handleNumberClick(Strings.EIGHT));
+buttons.nine?.addEventListener('click', () => handleNumberClick(Strings.NINE));
+buttons.zero?.addEventListener('click', () => handleNumberClick(Strings.ZERO));
+
+buttons.c?.addEventListener('click', handleCleanClick);
 // buttons.dot?.addEventListener('click', () => handleClean(screen)); // will think about how it work...
 
 

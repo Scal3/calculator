@@ -15,7 +15,13 @@ enum Numbers {
   ZERO = 0,
 }
 
+enum Errors {
+  SCREEN_IS_LOST = 'Screen is lost',
+  CALCULATOR_CONTAINER_IS_LOST = 'Caluclator container is lost'
+}
+
 export {
   Strings,
-  Numbers
+  Numbers,
+  Errors
 }

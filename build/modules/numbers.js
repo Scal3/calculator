@@ -1,4 +1,4 @@
-import { Numbers, Strings } from './constants.js';
+import { Numbers, Strings } from '../constants.js';
 const convertNumberValue = (calcValue, numberValue) => {
     if (Number(calcValue) <= Numbers.ZERO) {
         calcValue = numberValue;

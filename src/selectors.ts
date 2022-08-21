@@ -1,7 +1,10 @@
+import { Errors } from "./constants";
+
+
 const calcContainer: Element | null = document.querySelector('.calculator');
 
 if(!calcContainer) {
-  throw new Error('lol, we lost the container');
+  throw new Error(Errors.CALCULATOR_CONTAINER_IS_LOST);
 }
 
 const oneNumber: Element | null = calcContainer.querySelector('.one');
