@@ -1,17 +1,9 @@
-"use strict";
-// const handlePlus = (screenSelector: Element | null, calcValue: string): void => {
-//   if (!screenSelector) {
-//     throw new Error('kek');
-//   }
-//   calcValue
-// }
-// const handleOperator = (screenSelector: Element | null, calcValue: string, operator: string): void => {
-//   if (!screenSelector) {
-//     throw new Error('kek');
-//   }
-//   calcValue = operator;
-//   screenSelector.textContent = calcValue;
-// }
-// export {
-//   handlePlus,
-// }
+const convertValueWithOperator = (calcValue, operator) => {
+    // if(Number(calcValue) <= Numbers.ZERO) {
+    //   calcValue = numberValue;
+    //   return calcValue;
+    // }
+    calcValue = `${calcValue}${operator}`;
+    return calcValue;
+};
+export { convertValueWithOperator, };

@@ -1,4 +1,4 @@
-import { Errors } from "./constants";
+import { Errors } from "./constants.js";
 
 
 const calcContainer: Element | null = document.querySelector('.calculator');

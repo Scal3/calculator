@@ -15,6 +15,13 @@ enum Numbers {
   ZERO = 0,
 }
 
+enum Operators {
+  PLUS = '+',
+  MINUS = '-',
+  MULTIPLY = '*',
+  DIVIDE = '/'
+}
+
 enum Errors {
   SCREEN_IS_LOST = 'Screen is lost',
   CALCULATOR_CONTAINER_IS_LOST = 'Caluclator container is lost'
@@ -23,5 +30,6 @@ enum Errors {
 export {
   Strings,
   Numbers,
-  Errors
+  Errors,
+  Operators
 }

@@ -1,23 +1,17 @@
+import { Numbers } from "../constants.js";
 
-// const handlePlus = (screenSelector: Element | null, calcValue: string): void => {
-//   if (!screenSelector) {
-//     throw new Error('kek');
-//   }
+const convertValueWithOperator = (calcValue: string, operator: string): string => {
+  // if(Number(calcValue) <= Numbers.ZERO) {
+  //   calcValue = numberValue;
+  //   return calcValue;
+  // }
 
-//   calcValue
-// }
-
-// const handleOperator = (screenSelector: Element | null, calcValue: string, operator: string): void => {
-//   if (!screenSelector) {
-//     throw new Error('kek');
-//   }
-
-//   calcValue = operator;
-//   screenSelector.textContent = calcValue;
-// }
+  calcValue = `${calcValue}${operator}`;
+  return calcValue;
+}
 
 
-// export {
-//   handlePlus,
+export {
+  convertValueWithOperator,
 
-// }
+}

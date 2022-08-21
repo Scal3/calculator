@@ -1,8 +1,9 @@
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
 import { buttons, screen } from "./selectors.js";
 import { playSoundClick, setInitialScreenValue } from "./utils.js";
 import { convertNumberValue, cleanValue } from './modules/numbers.js';
-import { Errors, Strings } from "./constants.js";
+import { Errors, Operators, Strings } from "./constants.js";
+import { convertValueWithOperator } from "./modules/opetators.js";
 let calcValue = '0';
 const handleNumberClick = (numberValue) => {
     if (!screen) {
@@ -18,6 +19,22 @@ const handleCleanClick = () => {
     }
     const zero = cleanValue(calcValue);
     calcValue = zero;
+    screen.textContent = calcValue;
+};
+const handleOperatorClick = (operator) => {
+    if (!screen) {
+        throw new Error(Errors.SCREEN_IS_LOST);
+    }
+    const value = convertValueWithOperator(calcValue, operator);
+    calcValue = value;
+    screen.textContent = calcValue;
+};
+const handleEqualsClick = () => {
+    if (!screen) {
+        throw new Error(Errors.SCREEN_IS_LOST);
+    }
+    const result = eval(calcValue);
+    calcValue = result;
     screen.textContent = calcValue;
 };
 const handleMouseUp = (event) => {
@@ -51,8 +68,9 @@ window.addEventListener('mousedown', handleMouseDown);
 (_k = buttons.zero) === null || _k === void 0 ? void 0 : _k.addEventListener('click', () => handleNumberClick(Strings.ZERO));
 (_l = buttons.c) === null || _l === void 0 ? void 0 : _l.addEventListener('click', handleCleanClick);
 // buttons.dot?.addEventListener('click', () => handleClean(screen)); // will think about how it work...
-// buttons.plus?.addEventListener('click', () => handleNumberClick(screen, '7'));
-// buttons.minus?.addEventListener('click', () => handleNumberClick(screen, '8'));
-// buttons.multiply?.addEventListener('click', () => handleNumberClick(screen, '9'));
-// buttons.divide?.addEventListener('click', () => handleNumberClick(screen, '0'));
+(_m = buttons.plus) === null || _m === void 0 ? void 0 : _m.addEventListener('click', () => handleOperatorClick(Operators.PLUS));
+(_o = buttons.minus) === null || _o === void 0 ? void 0 : _o.addEventListener('click', () => handleNumberClick(Operators.MINUS));
+(_p = buttons.multiply) === null || _p === void 0 ? void 0 : _p.addEventListener('click', () => handleNumberClick(Operators.MULTIPLY));
+(_q = buttons.divide) === null || _q === void 0 ? void 0 : _q.addEventListener('click', () => handleNumberClick(Operators.DIVIDE));
+(_r = buttons.equals) === null || _r === void 0 ? void 0 : _r.addEventListener('click', handleEqualsClick);
 setInitialScreenValue(screen, calcValue);

@@ -15,9 +15,16 @@ var Numbers;
 (function (Numbers) {
     Numbers[Numbers["ZERO"] = 0] = "ZERO";
 })(Numbers || (Numbers = {}));
+var Operators;
+(function (Operators) {
+    Operators["PLUS"] = "+";
+    Operators["MINUS"] = "-";
+    Operators["MULTIPLY"] = "*";
+    Operators["DIVIDE"] = "/";
+})(Operators || (Operators = {}));
 var Errors;
 (function (Errors) {
     Errors["SCREEN_IS_LOST"] = "Screen is lost";
     Errors["CALCULATOR_CONTAINER_IS_LOST"] = "Caluclator container is lost";
 })(Errors || (Errors = {}));
-export { Strings, Numbers, Errors };
+export { Strings, Numbers, Errors, Operators };

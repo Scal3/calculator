@@ -1,4 +1,4 @@
-import { Errors } from "./constants";
+import { Errors } from "./constants.js";
 const calcContainer = document.querySelector('.calculator');
 if (!calcContainer) {
     throw new Error(Errors.CALCULATOR_CONTAINER_IS_LOST);
