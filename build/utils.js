@@ -1,4 +1,4 @@
-import { ErrorsTypes } from "./constants.js";
+import { ErrorsMessages, ErrorsTypes } from "./constants.js";
 import { handleExeptions } from "./modules/exeptions.js";
 // Create sounds off
 const playSoundClick = () => {
@@ -8,15 +8,22 @@ const playSoundClick = () => {
 };
 const setInitialScreenValue = (screen, calcValue) => {
     if (!screen) {
-        throw new Error('kek');
+        return handleExeptions({ type: ErrorsTypes.MISSING_SELECTOR, message: ErrorsMessages.SCREEN_IS_LOST });
     }
     screen.textContent = calcValue;
 };
-const handleFindElementBySelector = (selector, errorMessage) => {
-    const element = document.querySelector(selector);
+const handleFindElementBySelector = (findIn, selector, errorMessage) => {
+    const element = findIn.querySelector(selector);
     if (!element) {
         return handleExeptions({ type: ErrorsTypes.MISSING_SELECTOR, message: errorMessage });
     }
     return element;
 };
-export { playSoundClick, setInitialScreenValue, handleFindElementBySelector };
+const handleFindSeveralElementsBySelector = (findIn, selector, errorMessage) => {
+    const elements = findIn.querySelectorAll(selector);
+    if (!elements) {
+        return handleExeptions({ type: ErrorsTypes.MISSING_SELECTOR, message: errorMessage });
+    }
+    return elements;
+};
+export { playSoundClick, setInitialScreenValue, handleFindElementBySelector, handleFindSeveralElementsBySelector };

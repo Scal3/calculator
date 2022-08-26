@@ -1,30 +1,68 @@
-import { ErrorsMessages, ErrorsTypes } from "./constants.js";
-import { handleFindElementBySelector } from "./utils.js";
+import { classSelectors, ErrorsMessages } from "./constants.js";
+import { handleFindElementBySelector, handleFindSeveralElementsBySelector } from "./utils.js";
 
 
-const calcContainer = handleFindElementBySelector('.calculator', ErrorsMessages.CALCULATOR_CONTAINER_IS_LOST);
+const calcContainer = handleFindElementBySelector(
+  document , classSelectors.CALCULATOR_CONTAINER, ErrorsMessages.CALCULATOR_CONTAINER_IS_LOST
+);
+const oneNumber = handleFindElementBySelector(
+  calcContainer , classSelectors.ONE, ErrorsMessages.SELECTOR_NOT_FOUND
+);
+const twoNumber = handleFindElementBySelector(
+  calcContainer , classSelectors.TWO, ErrorsMessages.SELECTOR_NOT_FOUND
+);
+const threeNumber = handleFindElementBySelector(
+  calcContainer , classSelectors.THREE, ErrorsMessages.SELECTOR_NOT_FOUND
+);
+const fourNumber = handleFindElementBySelector(
+  calcContainer , classSelectors.FOUR, ErrorsMessages.SELECTOR_NOT_FOUND
+);
+const fiveNumber = handleFindElementBySelector(
+  calcContainer , classSelectors.FIVE, ErrorsMessages.SELECTOR_NOT_FOUND
+);
+const sixNumber = handleFindElementBySelector(
+  calcContainer , classSelectors.SIX, ErrorsMessages.SELECTOR_NOT_FOUND
+);
+const sevenNumber = handleFindElementBySelector(
+  calcContainer , classSelectors.SEVEN, ErrorsMessages.SELECTOR_NOT_FOUND
+);
+const eightNumber = handleFindElementBySelector(
+  calcContainer , classSelectors.EIGHT, ErrorsMessages.SELECTOR_NOT_FOUND
+);
+const nineNumber = handleFindElementBySelector(
+  calcContainer , classSelectors.NINE, ErrorsMessages.SELECTOR_NOT_FOUND
+);
+const zeroNumber = handleFindElementBySelector(
+  calcContainer , classSelectors.ZERO, ErrorsMessages.SELECTOR_NOT_FOUND
+);
+const dot = handleFindElementBySelector(
+  calcContainer , classSelectors.DOT, ErrorsMessages.SELECTOR_NOT_FOUND
+);
+const buttonC = handleFindElementBySelector(
+  calcContainer , classSelectors.BUTTON_C, ErrorsMessages.SELECTOR_NOT_FOUND
+);
+const plus = handleFindElementBySelector(
+  calcContainer , classSelectors.PLUS, ErrorsMessages.SELECTOR_NOT_FOUND
+);
+const minus = handleFindElementBySelector(
+  calcContainer , classSelectors.MINUS, ErrorsMessages.SELECTOR_NOT_FOUND
+);
+const multiply = handleFindElementBySelector(
+  calcContainer , classSelectors.MULTIPLY, ErrorsMessages.SELECTOR_NOT_FOUND
+);
+const divide = handleFindElementBySelector(
+  calcContainer , classSelectors.DIVIDE, ErrorsMessages.SELECTOR_NOT_FOUND
+);
+const equals = handleFindElementBySelector(
+  calcContainer , classSelectors.EQUALS, ErrorsMessages.SELECTOR_NOT_FOUND
+);
+const screen = handleFindElementBySelector(
+  calcContainer , classSelectors.SCREEN, ErrorsMessages.SELECTOR_NOT_FOUND
+);
 
-const oneNumber: Element | null = calcContainer.querySelector('.one');
-const twoNumber: Element | null = calcContainer.querySelector('.two');
-const threeNumber: Element | null = calcContainer.querySelector('.three');
-const fourNumber: Element | null = calcContainer.querySelector('.four');
-const fiveNumber: Element | null = calcContainer.querySelector('.five');
-const sixNumber: Element | null = calcContainer.querySelector('.six');
-const sevenNumber: Element | null = calcContainer.querySelector('.seven');
-const eightNumber: Element | null = calcContainer.querySelector('.eight');
-const nineNumber: Element | null = calcContainer.querySelector('.nine');
-const zeroNumber: Element | null = calcContainer.querySelector('.zero');
-const dot: Element | null = calcContainer.querySelector('.dot');
-const buttonC: Element | null = calcContainer.querySelector('.button-c');
-const plus: Element | null = calcContainer.querySelector('.plus');
-const minus: Element | null = calcContainer.querySelector('.minus');
-const multiply: Element | null = calcContainer.querySelector('.multiply');
-const divide: Element | null = calcContainer.querySelector('.divide'); 
-const equals: Element | null = calcContainer.querySelector('.grid-equals'); 
-const allButtons = calcContainer.querySelectorAll('.calculator__button');
-
-const screen: Element | null = calcContainer.querySelector('.calculator__screen-symbols');
-
+const allButtons = handleFindSeveralElementsBySelector(
+  calcContainer , classSelectors.SCREEN, ErrorsMessages.SELECTOR_NOT_FOUND
+);
 
 
 const buttons = {

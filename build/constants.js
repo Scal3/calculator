@@ -22,13 +22,36 @@ var Operators;
     Operators["MULTIPLY"] = "*";
     Operators["DIVIDE"] = "/";
 })(Operators || (Operators = {}));
+const classSelectors = {
+    ONE: '.one',
+    TWO: '.two',
+    THREE: '.three',
+    FOUR: '.four',
+    FIVE: '.five',
+    SIX: '.six',
+    SEVEN: '.seven',
+    EIGHT: '.eight',
+    NINE: '.nine',
+    ZERO: '.zero',
+    DOT: '.dot',
+    BUTTON_C: '.button-c',
+    PLUS: '.plus',
+    MINUS: '.minus',
+    MULTIPLY: '.multiply',
+    DIVIDE: '.divide',
+    EQUALS: '.grid-equals',
+    ALL_BUTTONS: '.calculator__button',
+    SCREEN: '.calculator__screen-symbols',
+    CALCULATOR_CONTAINER: '.calculator',
+};
 var ErrorsMessages;
 (function (ErrorsMessages) {
     ErrorsMessages["SCREEN_IS_LOST"] = "screen is lost";
     ErrorsMessages["CALCULATOR_CONTAINER_IS_LOST"] = "caluclator container is lost";
+    ErrorsMessages["SELECTOR_NOT_FOUND"] = "selector not found";
 })(ErrorsMessages || (ErrorsMessages = {}));
 var ErrorsTypes;
 (function (ErrorsTypes) {
     ErrorsTypes["MISSING_SELECTOR"] = "Missing selector";
 })(ErrorsTypes || (ErrorsTypes = {}));
-export { Strings, Numbers, ErrorsMessages, ErrorsTypes, Operators };
+export { Strings, Numbers, ErrorsMessages, ErrorsTypes, Operators, classSelectors };

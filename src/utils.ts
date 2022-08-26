@@ -8,16 +8,16 @@ const playSoundClick = () => {
   audio.play();
 }
 
-const setInitialScreenValue = (screen: Element | null, calcValue: string) => {
-  if (!screen) {
-    throw new Error('kek');
+const setInitialScreenValue = (screen: Element | null, calcValue: string): void => {
+  if(!screen) {
+    return handleExeptions({ type: ErrorsTypes.MISSING_SELECTOR, message: ErrorsMessages.SCREEN_IS_LOST });
   }
   
   screen.textContent = calcValue;
 }
 
-const handleFindElementBySelector = (selector: string, errorMessage: string): Element => {
-  const element: Element | null = document.querySelector(selector);
+const handleFindElementBySelector = (findIn: Element | Document, selector: string, errorMessage: string): Element => {
+  const element: Element | null = findIn.querySelector(selector);
 
   if(!element) {
     return handleExeptions({ type: ErrorsTypes.MISSING_SELECTOR, message: errorMessage });
@@ -26,8 +26,21 @@ const handleFindElementBySelector = (selector: string, errorMessage: string): El
   return element;
 }
 
+const handleFindSeveralElementsBySelector = (
+  findIn: Element | Document, selector: string, errorMessage: string
+): NodeListOf<Element> => {
+  const elements: NodeListOf<Element> | null = findIn.querySelectorAll(selector);
+
+  if(!elements) {
+    return handleExeptions({ type: ErrorsTypes.MISSING_SELECTOR, message: errorMessage });
+  }
+
+  return elements;
+}
+
 export {
   playSoundClick,
   setInitialScreenValue,
-  handleFindElementBySelector
+  handleFindElementBySelector,
+  handleFindSeveralElementsBySelector
 }

@@ -1,48 +1,31 @@
 import { buttons, screen } from "./selectors.js";
 import { playSoundClick, setInitialScreenValue } from "./utils.js";
 import { convertNumberValue, cleanValue } from './modules/numbers.js';
-import { ErrorsTypes, ErrorsMessages, Operators, Strings } from "./constants.js";
+import { Operators, Strings } from "./constants.js";
 import { convertValueWithOperator } from "./modules/opetators.js";
-import { handleExeptions } from "./modules/exeptions.js";
 
 let calcValue = '0';
 
 
 const handleNumberClick = (numberValue: string) => {
-  if(!screen) {
-    return handleExeptions({ type: ErrorsTypes.MISSING_SELECTOR, message: ErrorsMessages.SCREEN_IS_LOST });
-  }
-
   const value = convertNumberValue(calcValue, numberValue);
   calcValue = value;
   screen.textContent = calcValue;
 }
 
 const handleCleanClick = () => {
-  if(!screen) {
-    return handleExeptions({ type: ErrorsTypes.MISSING_SELECTOR, message: ErrorsMessages.SCREEN_IS_LOST });
-  }
-
   const zero = cleanValue(calcValue);
   calcValue = zero;
   screen.textContent = calcValue;
 }
 
 const handleOperatorClick = (operator: string) => {
-  if(!screen) {
-    return handleExeptions({ type: ErrorsTypes.MISSING_SELECTOR, message: ErrorsMessages.SCREEN_IS_LOST });
-  }
-
   const value = convertValueWithOperator(calcValue, operator);
   calcValue = value;
   screen.textContent = calcValue;
 }
 
 const handleEqualsClick = () => {
-  if(!screen) {
-    return handleExeptions({ type: ErrorsTypes.MISSING_SELECTOR, message: ErrorsMessages.SCREEN_IS_LOST });
-  }
-
   const result = eval(calcValue);
   calcValue = result;
   screen.textContent = calcValue;
@@ -73,26 +56,26 @@ window.addEventListener('mouseup', handleMouseUp);
 // MOUSE DOWN
 window.addEventListener('mousedown', handleMouseDown);
 
-buttons.one?.addEventListener('click', () => handleNumberClick(Strings.ONE));
-buttons.two?.addEventListener('click', () => handleNumberClick(Strings.TWO));
-buttons.three?.addEventListener('click', () => handleNumberClick(Strings.THREE));
-buttons.four?.addEventListener('click', () => handleNumberClick(Strings.FOUR));
-buttons.five?.addEventListener('click', () => handleNumberClick(Strings.FIVE));
-buttons.six?.addEventListener('click', () => handleNumberClick(Strings.SIX));
-buttons.seven?.addEventListener('click', () => handleNumberClick(Strings.SEVEN));
-buttons.eight?.addEventListener('click', () => handleNumberClick(Strings.EIGHT));
-buttons.nine?.addEventListener('click', () => handleNumberClick(Strings.NINE));
-buttons.zero?.addEventListener('click', () => handleNumberClick(Strings.ZERO));
+buttons.one.addEventListener('click', () => handleNumberClick(Strings.ONE));
+buttons.two.addEventListener('click', () => handleNumberClick(Strings.TWO));
+buttons.three.addEventListener('click', () => handleNumberClick(Strings.THREE));
+buttons.four.addEventListener('click', () => handleNumberClick(Strings.FOUR));
+buttons.five.addEventListener('click', () => handleNumberClick(Strings.FIVE));
+buttons.six.addEventListener('click', () => handleNumberClick(Strings.SIX));
+buttons.seven.addEventListener('click', () => handleNumberClick(Strings.SEVEN));
+buttons.eight.addEventListener('click', () => handleNumberClick(Strings.EIGHT));
+buttons.nine.addEventListener('click', () => handleNumberClick(Strings.NINE));
+buttons.zero.addEventListener('click', () => handleNumberClick(Strings.ZERO));
 
-buttons.c?.addEventListener('click', handleCleanClick);
-// buttons.dot?.addEventListener('click', () => handleClean(screen)); // will think about how it work...
+buttons.c.addEventListener('click', handleCleanClick);
+// buttons.dot.addEventListener('click', () => handleClean(screen)); // will think about how it work...
 
 
-buttons.plus?.addEventListener('click', () => handleOperatorClick(Operators.PLUS));
-buttons.minus?.addEventListener('click', () => handleNumberClick(Operators.MINUS));
-buttons.multiply?.addEventListener('click', () => handleNumberClick(Operators.MULTIPLY));
-buttons.divide?.addEventListener('click', () => handleNumberClick(Operators.DIVIDE));
-buttons.equals?.addEventListener('click', handleEqualsClick);
+buttons.plus.addEventListener('click', () => handleOperatorClick(Operators.PLUS));
+buttons.minus.addEventListener('click', () => handleNumberClick(Operators.MINUS));
+buttons.multiply.addEventListener('click', () => handleNumberClick(Operators.MULTIPLY));
+buttons.divide.addEventListener('click', () => handleNumberClick(Operators.DIVIDE));
+buttons.equals.addEventListener('click', handleEqualsClick);
 
 
 setInitialScreenValue(screen, calcValue);
