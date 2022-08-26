@@ -1,8 +1,6 @@
-import { Errors } from "./constants.js";
-const calcContainer = document.querySelector('.calculator');
-if (!calcContainer) {
-    throw new Error(Errors.CALCULATOR_CONTAINER_IS_LOST);
-}
+import { ErrorsMessages } from "./constants.js";
+import { handleFindElementBySelector } from "./utils.js";
+const calcContainer = handleFindElementBySelector('.calculator', ErrorsMessages.CALCULATOR_CONTAINER_IS_LOST);
 const oneNumber = calcContainer.querySelector('.one');
 const twoNumber = calcContainer.querySelector('.two');
 const threeNumber = calcContainer.querySelector('.three');

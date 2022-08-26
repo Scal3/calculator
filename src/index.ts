@@ -1,15 +1,16 @@
 import { buttons, screen } from "./selectors.js";
 import { playSoundClick, setInitialScreenValue } from "./utils.js";
 import { convertNumberValue, cleanValue } from './modules/numbers.js';
-import { Errors, Operators, Strings } from "./constants.js";
+import { ErrorsTypes, ErrorsMessages, Operators, Strings } from "./constants.js";
 import { convertValueWithOperator } from "./modules/opetators.js";
+import { handleExeptions } from "./modules/exeptions.js";
 
 let calcValue = '0';
 
 
 const handleNumberClick = (numberValue: string) => {
   if(!screen) {
-    throw new Error(Errors.SCREEN_IS_LOST);
+    return handleExeptions({ type: ErrorsTypes.MISSING_SELECTOR, message: ErrorsMessages.SCREEN_IS_LOST });
   }
 
   const value = convertNumberValue(calcValue, numberValue);
@@ -19,7 +20,7 @@ const handleNumberClick = (numberValue: string) => {
 
 const handleCleanClick = () => {
   if(!screen) {
-    throw new Error(Errors.SCREEN_IS_LOST);
+    return handleExeptions({ type: ErrorsTypes.MISSING_SELECTOR, message: ErrorsMessages.SCREEN_IS_LOST });
   }
 
   const zero = cleanValue(calcValue);
@@ -29,7 +30,7 @@ const handleCleanClick = () => {
 
 const handleOperatorClick = (operator: string) => {
   if(!screen) {
-    throw new Error(Errors.SCREEN_IS_LOST);
+    return handleExeptions({ type: ErrorsTypes.MISSING_SELECTOR, message: ErrorsMessages.SCREEN_IS_LOST });
   }
 
   const value = convertValueWithOperator(calcValue, operator);
@@ -39,7 +40,7 @@ const handleOperatorClick = (operator: string) => {
 
 const handleEqualsClick = () => {
   if(!screen) {
-    throw new Error(Errors.SCREEN_IS_LOST);
+    return handleExeptions({ type: ErrorsTypes.MISSING_SELECTOR, message: ErrorsMessages.SCREEN_IS_LOST });
   }
 
   const result = eval(calcValue);

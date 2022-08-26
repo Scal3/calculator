@@ -22,14 +22,19 @@ enum Operators {
   DIVIDE = '/'
 }
 
-enum Errors {
-  SCREEN_IS_LOST = 'Screen is lost',
-  CALCULATOR_CONTAINER_IS_LOST = 'Caluclator container is lost'
+enum ErrorsMessages {
+  SCREEN_IS_LOST = 'screen is lost',
+  CALCULATOR_CONTAINER_IS_LOST = 'caluclator container is lost'
+}
+
+enum ErrorsTypes {
+  MISSING_SELECTOR = 'Missing selector',
 }
 
 export {
   Strings,
   Numbers,
-  Errors,
+  ErrorsMessages,
+  ErrorsTypes,
   Operators
 }

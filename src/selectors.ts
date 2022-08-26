@@ -1,11 +1,8 @@
-import { Errors } from "./constants.js";
+import { ErrorsMessages, ErrorsTypes } from "./constants.js";
+import { handleFindElementBySelector } from "./utils.js";
 
 
-const calcContainer: Element | null = document.querySelector('.calculator');
-
-if(!calcContainer) {
-  throw new Error(Errors.CALCULATOR_CONTAINER_IS_LOST);
-}
+const calcContainer = handleFindElementBySelector('.calculator', ErrorsMessages.CALCULATOR_CONTAINER_IS_LOST);
 
 const oneNumber: Element | null = calcContainer.querySelector('.one');
 const twoNumber: Element | null = calcContainer.querySelector('.two');

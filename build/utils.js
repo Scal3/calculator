@@ -1,3 +1,5 @@
+import { ErrorsTypes } from "./constants.js";
+import { handleExeptions } from "./modules/exeptions.js";
 // Create sounds off
 const playSoundClick = () => {
     const audio = new Audio('../assets/click.wav');
@@ -10,4 +12,11 @@ const setInitialScreenValue = (screen, calcValue) => {
     }
     screen.textContent = calcValue;
 };
-export { playSoundClick, setInitialScreenValue };
+const handleFindElementBySelector = (selector, errorMessage) => {
+    const element = document.querySelector(selector);
+    if (!element) {
+        return handleExeptions({ type: ErrorsTypes.MISSING_SELECTOR, message: errorMessage });
+    }
+    return element;
+};
+export { playSoundClick, setInitialScreenValue, handleFindElementBySelector };

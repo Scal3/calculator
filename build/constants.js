@@ -22,9 +22,13 @@ var Operators;
     Operators["MULTIPLY"] = "*";
     Operators["DIVIDE"] = "/";
 })(Operators || (Operators = {}));
-var Errors;
-(function (Errors) {
-    Errors["SCREEN_IS_LOST"] = "Screen is lost";
-    Errors["CALCULATOR_CONTAINER_IS_LOST"] = "Caluclator container is lost";
-})(Errors || (Errors = {}));
-export { Strings, Numbers, Errors, Operators };
+var ErrorsMessages;
+(function (ErrorsMessages) {
+    ErrorsMessages["SCREEN_IS_LOST"] = "screen is lost";
+    ErrorsMessages["CALCULATOR_CONTAINER_IS_LOST"] = "caluclator container is lost";
+})(ErrorsMessages || (ErrorsMessages = {}));
+var ErrorsTypes;
+(function (ErrorsTypes) {
+    ErrorsTypes["MISSING_SELECTOR"] = "Missing selector";
+})(ErrorsTypes || (ErrorsTypes = {}));
+export { Strings, Numbers, ErrorsMessages, ErrorsTypes, Operators };
