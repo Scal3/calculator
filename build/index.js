@@ -1,7 +1,7 @@
 import { buttons, screen } from "./selectors.js";
 import { playSoundClick, setInitialScreenValue } from "./utils.js";
 import { convertNumberValue, cleanValue } from './modules/numbers.js';
-import { Operators, Strings } from "./constants.js";
+import { Operators, Strings, Symbols } from "./constants.js";
 import { convertValueWithOperator } from "./modules/opetators.js";
 let calcValue = '0';
 const handleNumberClick = (numberValue) => {
@@ -54,10 +54,10 @@ buttons.eight.addEventListener('click', () => handleNumberClick(Strings.EIGHT));
 buttons.nine.addEventListener('click', () => handleNumberClick(Strings.NINE));
 buttons.zero.addEventListener('click', () => handleNumberClick(Strings.ZERO));
 buttons.c.addEventListener('click', handleCleanClick);
-// buttons.dot.addEventListener('click', () => handleClean(screen)); // will think about how it work...
+buttons.dot.addEventListener('click', () => handleOperatorClick(Symbols.DOT));
 buttons.plus.addEventListener('click', () => handleOperatorClick(Operators.PLUS));
-buttons.minus.addEventListener('click', () => handleNumberClick(Operators.MINUS));
-buttons.multiply.addEventListener('click', () => handleNumberClick(Operators.MULTIPLY));
-buttons.divide.addEventListener('click', () => handleNumberClick(Operators.DIVIDE));
+buttons.minus.addEventListener('click', () => handleOperatorClick(Operators.MINUS));
+buttons.multiply.addEventListener('click', () => handleOperatorClick(Operators.MULTIPLY));
+buttons.divide.addEventListener('click', () => handleOperatorClick(Operators.DIVIDE));
 buttons.equals.addEventListener('click', handleEqualsClick);
 setInitialScreenValue(screen, calcValue);

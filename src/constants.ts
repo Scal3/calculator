@@ -22,6 +22,10 @@ enum Operators {
   DIVIDE = '/'
 }
 
+enum Symbols {
+  DOT = '.'
+}
+
 const classSelectors = {
   ONE: '.one',
   TWO: '.two',
@@ -61,5 +65,6 @@ export {
   ErrorsMessages,
   ErrorsTypes,
   Operators,
+  Symbols,
   classSelectors
 }

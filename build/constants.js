@@ -22,6 +22,10 @@ var Operators;
     Operators["MULTIPLY"] = "*";
     Operators["DIVIDE"] = "/";
 })(Operators || (Operators = {}));
+var Symbols;
+(function (Symbols) {
+    Symbols["DOT"] = ".";
+})(Symbols || (Symbols = {}));
 const classSelectors = {
     ONE: '.one',
     TWO: '.two',
@@ -54,4 +58,4 @@ var ErrorsTypes;
 (function (ErrorsTypes) {
     ErrorsTypes["MISSING_SELECTOR"] = "Missing selector";
 })(ErrorsTypes || (ErrorsTypes = {}));
-export { Strings, Numbers, ErrorsMessages, ErrorsTypes, Operators, classSelectors };
+export { Strings, Numbers, ErrorsMessages, ErrorsTypes, Operators, Symbols, classSelectors };
