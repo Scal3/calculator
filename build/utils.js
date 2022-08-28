@@ -26,4 +26,10 @@ const handleFindSeveralElementsBySelector = (findIn, selector, errorMessage) => 
     }
     return elements;
 };
-export { playSoundClick, setInitialScreenValue, handleFindElementBySelector, handleFindSeveralElementsBySelector };
+const replaceLastSimbolInStringWithOperator = (calcValue, operator) => {
+    const newVal = calcValue.split('');
+    newVal.pop();
+    const res = `${newVal.join('')}${operator}`;
+    return res;
+};
+export { playSoundClick, setInitialScreenValue, handleFindElementBySelector, handleFindSeveralElementsBySelector, replaceLastSimbolInStringWithOperator };

@@ -70,7 +70,6 @@ buttons.zero.addEventListener('click', () => handleNumberClick(Strings.ZERO));
 buttons.c.addEventListener('click', handleCleanClick);
 buttons.dot.addEventListener('click', () => handleOperatorClick(Symbols.DOT));
 
-
 buttons.plus.addEventListener('click', () => handleOperatorClick(Operators.PLUS));
 buttons.minus.addEventListener('click', () => handleOperatorClick(Operators.MINUS));
 buttons.multiply.addEventListener('click', () => handleOperatorClick(Operators.MULTIPLY));
