@@ -1,5 +1,11 @@
-import { Numbers, Strings } from '../constants.js';
+import { Numbers, Strings, Symbols } from '../constants.js';
 const convertNumberValue = (calcValue, numberValue) => {
+    const valArr = calcValue.split('');
+    const lastSymbol = valArr[valArr.length - 1];
+    if (lastSymbol === Symbols.DOT) {
+        calcValue = `${calcValue}${numberValue}`;
+        return calcValue;
+    }
     if (Number(calcValue) <= Numbers.ZERO) {
         calcValue = numberValue;
         return calcValue;
