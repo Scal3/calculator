@@ -58,4 +58,9 @@ var ErrorsTypes;
 (function (ErrorsTypes) {
     ErrorsTypes["MISSING_SELECTOR"] = "Missing selector";
 })(ErrorsTypes || (ErrorsTypes = {}));
-export { Strings, Numbers, ErrorsMessages, ErrorsTypes, Operators, Symbols, classSelectors };
+var Events;
+(function (Events) {
+    Events["MOUSE_UP"] = "mouseup";
+    Events["MOUSE_DOWN"] = "mousedown";
+})(Events || (Events = {}));
+export { Strings, Numbers, ErrorsMessages, ErrorsTypes, Operators, Symbols, Events, classSelectors };

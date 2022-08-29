@@ -59,6 +59,11 @@ enum ErrorsTypes {
   MISSING_SELECTOR = 'Missing selector',
 }
 
+enum Events {
+  MOUSE_UP = 'mouseup',
+  MOUSE_DOWN = 'mousedown'
+}
+
 export {
   Strings,
   Numbers,
@@ -66,5 +71,6 @@ export {
   ErrorsTypes,
   Operators,
   Symbols,
+  Events,
   classSelectors
 }
