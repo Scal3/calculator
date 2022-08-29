@@ -1,7 +1,11 @@
 import { Numbers, Operators, Symbols } from "../constants.js";
-import { replaceLastSimbolInStringWithOperator } from "../utils.js";
+import { hasTwoDots, replaceLastSimbolInStringWithOperator } from "../utils.js";
 
 const convertValueWithOperator = (calcValue: string, operator: string): string => {
+  if(hasTwoDots(calcValue, operator)) {
+    return calcValue;
+  }
+
   const lastSymbol = calcValue[calcValue.length - 1];
 
   switch(lastSymbol) {

@@ -1,6 +1,9 @@
 import { Operators, Symbols } from "../constants.js";
-import { replaceLastSimbolInStringWithOperator } from "../utils.js";
+import { hasTwoDots, replaceLastSimbolInStringWithOperator } from "../utils.js";
 const convertValueWithOperator = (calcValue, operator) => {
+    if (hasTwoDots(calcValue, operator)) {
+        return calcValue;
+    }
     const lastSymbol = calcValue[calcValue.length - 1];
     switch (lastSymbol) {
         case Operators.DIVIDE:

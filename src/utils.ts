@@ -1,4 +1,4 @@
-import { ErrorsMessages, ErrorsTypes } from "./constants.js";
+import { ErrorsMessages, ErrorsTypes, Symbols } from "./constants.js";
 import { handleExeptions } from "./modules/exeptions.js";
 
 // Create sounds off
@@ -46,10 +46,22 @@ const replaceLastSimbolInStringWithOperator = (calcValue: string, operator: stri
   return res;
 }
 
+const hasTwoDots = (calcValue: string, operator: string): boolean => {
+  const calcValueArr = calcValue.split('');
+  calcValueArr.push(operator);
+  const filteredCalcValueArr = calcValueArr.filter((item, i, arr) => {
+    return item === Symbols.DOT && arr[i-1] !== Symbols.DOT && arr[i+1] !== Symbols.DOT && (arr[i+2] === Symbols.DOT || arr[i+3] === Symbols.DOT)
+  });
+  const hasTwoDots = filteredCalcValueArr.length >= 1 ? true : false;
+
+  return hasTwoDots;
+}
+
 export {
   playSoundClick,
   setInitialScreenValue,
   handleFindElementBySelector,
   handleFindSeveralElementsBySelector,
-  replaceLastSimbolInStringWithOperator
+  replaceLastSimbolInStringWithOperator,
+  hasTwoDots
 }
