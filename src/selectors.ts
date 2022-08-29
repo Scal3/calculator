@@ -59,9 +59,8 @@ const equals = handleFindElementBySelector(
 const screen = handleFindElementBySelector(
   calcContainer , classSelectors.SCREEN, ErrorsMessages.SELECTOR_NOT_FOUND
 );
-
 const allButtons = handleFindSeveralElementsBySelector(
-  calcContainer , classSelectors.SCREEN, ErrorsMessages.SELECTOR_NOT_FOUND
+  calcContainer , classSelectors.ALL_BUTTONS, ErrorsMessages.SELECTOR_NOT_FOUND
 );
 
 

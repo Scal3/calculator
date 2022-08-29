@@ -19,7 +19,7 @@ const multiply = handleFindElementBySelector(calcContainer, classSelectors.MULTI
 const divide = handleFindElementBySelector(calcContainer, classSelectors.DIVIDE, ErrorsMessages.SELECTOR_NOT_FOUND);
 const equals = handleFindElementBySelector(calcContainer, classSelectors.EQUALS, ErrorsMessages.SELECTOR_NOT_FOUND);
 const screen = handleFindElementBySelector(calcContainer, classSelectors.SCREEN, ErrorsMessages.SELECTOR_NOT_FOUND);
-const allButtons = handleFindSeveralElementsBySelector(calcContainer, classSelectors.SCREEN, ErrorsMessages.SELECTOR_NOT_FOUND);
+const allButtons = handleFindSeveralElementsBySelector(calcContainer, classSelectors.ALL_BUTTONS, ErrorsMessages.SELECTOR_NOT_FOUND);
 const buttons = {
     one: oneNumber,
     two: twoNumber,

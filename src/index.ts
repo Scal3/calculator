@@ -34,18 +34,19 @@ const handleEqualsClick = () => {
 const handleMouseUp = (event: any) => {
   if (event.target.classList.contains('calculator__button')) {
     // Fix bug with no-sound event, when mouseup is outside button
-    playSoundClick();
     event.target.classList.remove('calculator__button_without_shadow');
   }
 
-  buttons.allButtons.forEach(button => {
+  Array.from(buttons.allButtons).forEach(button => {
     button.classList.remove('calculator__button_without_shadow');
   });
+
 }
 
 const handleMouseDown = (event: any) => {
   if (event.target.classList.contains('calculator__button')) {
     event.target.classList.add('calculator__button_without_shadow');
+    playSoundClick();
   }
 }
 
