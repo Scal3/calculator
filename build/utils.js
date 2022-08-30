@@ -1,4 +1,4 @@
-import { ErrorsMessages, ErrorsTypes, Symbols } from "./constants.js";
+import { ErrorsMessages, ErrorsTypes, Operators, Symbols } from "./constants.js";
 import { handleExeptions } from "./modules/exeptions.js";
 // Create sounds off
 const playSoundClick = () => {
@@ -27,13 +27,13 @@ const handleFindSeveralElementsBySelector = (findIn, selector, errorMessage) => 
     return elements;
 };
 const replaceLastSimbolInStringWithOperator = (calcValue, operator) => {
-    const newVal = calcValue.split('');
+    const newVal = String(calcValue).split('');
     newVal.pop();
     const res = `${newVal.join('')}${operator}`;
     return res;
 };
 const hasTwoDots = (calcValue, operator) => {
-    const calcValueArr = calcValue.split('');
+    const calcValueArr = String(calcValue).split('');
     calcValueArr.push(operator);
     const filteredCalcValueArr = calcValueArr.filter((item, i, arr) => {
         return item === Symbols.DOT && arr[i - 1] !== Symbols.DOT && arr[i + 1] !== Symbols.DOT && (arr[i + 2] === Symbols.DOT || arr[i + 3] === Symbols.DOT);
@@ -41,4 +41,14 @@ const hasTwoDots = (calcValue, operator) => {
     const hasTwoDots = filteredCalcValueArr.length >= 1 ? true : false;
     return hasTwoDots;
 };
-export { playSoundClick, setInitialScreenValue, handleFindElementBySelector, handleFindSeveralElementsBySelector, replaceLastSimbolInStringWithOperator, hasTwoDots };
+const hasOperatorInEndOfString = (calcValue) => {
+    const calcValueArr = String(calcValue).split('');
+    if (calcValueArr[calcValueArr.length - 1] === Operators.DIVIDE
+        || calcValueArr[calcValueArr.length - 1] === Operators.PLUS
+        || calcValueArr[calcValueArr.length - 1] === Operators.MINUS
+        || calcValueArr[calcValueArr.length - 1] === Operators.MULTIPLY) {
+        return true;
+    }
+    return false;
+};
+export { playSoundClick, setInitialScreenValue, handleFindElementBySelector, handleFindSeveralElementsBySelector, replaceLastSimbolInStringWithOperator, hasTwoDots, hasOperatorInEndOfString };

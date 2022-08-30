@@ -1,5 +1,5 @@
 import { buttons, screen } from "./selectors.js";
-import { playSoundClick, setInitialScreenValue } from "./utils.js";
+import { hasOperatorInEndOfString, playSoundClick, setInitialScreenValue } from "./utils.js";
 import { convertNumberValue, cleanValue } from './modules/numbers.js';
 import { Events, Operators, Strings, Symbols } from "./constants.js";
 import { convertValueWithOperator } from "./modules/opetators.js";
@@ -7,31 +7,39 @@ import { convertValueWithOperator } from "./modules/opetators.js";
 let calcValue = '0';
 
 
-const handleNumberClick = (numberValue: string) => {
+const handleNumberClick = (numberValue: string): void => {
   const value = convertNumberValue(calcValue, numberValue);
   calcValue = value;
   screen.textContent = calcValue;
 }
 
-const handleCleanClick = () => {
+const handleCleanClick = (): void => {
   const zero = cleanValue(calcValue);
   calcValue = zero;
   screen.textContent = calcValue;
 }
 
-const handleOperatorClick = (operator: string) => {
+const handleOperatorClick = (operator: string): void => {
   const value = convertValueWithOperator(calcValue, operator);
   calcValue = value;
   screen.textContent = calcValue;
 }
 
-const handleEqualsClick = () => {
+const handleEqualsClick = (): string | void => {
+  if(hasOperatorInEndOfString(calcValue)) {
+    const calcValueArr = String(calcValue).split('');
+    calcValueArr.pop();
+    const res = calcValueArr.join('');
+    calcValue = res;
+    return screen.textContent = res;
+  }
+
   const result = eval(calcValue);
   calcValue = result;
   screen.textContent = calcValue;
 }
 
-const handleMouseUp = (event: any) => {
+const handleMouseUp = (event: any): void => {
   if (event.target.classList.contains('calculator__button')) {
     event.target.classList.remove('calculator__button_without_shadow');
   }
@@ -42,7 +50,7 @@ const handleMouseUp = (event: any) => {
 
 }
 
-const handleMouseDown = (event: any) => {
+const handleMouseDown = (event: any): void => {
   if (event.target.classList.contains('calculator__button')) {
     event.target.classList.add('calculator__button_without_shadow');
     playSoundClick();

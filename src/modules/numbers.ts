@@ -1,7 +1,7 @@
 import {Numbers, Strings, Symbols} from '../constants.js';
 
 const convertNumberValue = (calcValue: string, numberValue: string): string => {
-  const valArr = calcValue.split('');
+  const valArr = String(calcValue).split('');
   const lastSymbol = valArr[valArr.length - 1];
 
   if(lastSymbol === Symbols.DOT) {

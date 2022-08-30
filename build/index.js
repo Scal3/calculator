@@ -1,5 +1,5 @@
 import { buttons, screen } from "./selectors.js";
-import { playSoundClick, setInitialScreenValue } from "./utils.js";
+import { hasOperatorInEndOfString, playSoundClick, setInitialScreenValue } from "./utils.js";
 import { convertNumberValue, cleanValue } from './modules/numbers.js';
 import { Events, Operators, Strings, Symbols } from "./constants.js";
 import { convertValueWithOperator } from "./modules/opetators.js";
@@ -20,6 +20,13 @@ const handleOperatorClick = (operator) => {
     screen.textContent = calcValue;
 };
 const handleEqualsClick = () => {
+    if (hasOperatorInEndOfString(calcValue)) {
+        const calcValueArr = String(calcValue).split('');
+        calcValueArr.pop();
+        const res = calcValueArr.join('');
+        calcValue = res;
+        return screen.textContent = res;
+    }
     const result = eval(calcValue);
     calcValue = result;
     screen.textContent = calcValue;
