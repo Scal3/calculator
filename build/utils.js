@@ -1,4 +1,4 @@
-import { ErrorsMessages, ErrorsTypes, Operators, Symbols } from "./constants.js";
+import { ErrorsMessages, ErrorsTypes, Operators } from "./constants.js";
 import { handleExeptions } from "./modules/exeptions.js";
 // Create sounds off
 const playSoundClick = () => {
@@ -33,13 +33,20 @@ const replaceLastSimbolInStringWithOperator = (calcValue, operator) => {
     return res;
 };
 const hasTwoDots = (calcValue, operator) => {
-    const calcValueArr = String(calcValue).split('');
-    calcValueArr.push(operator);
-    const filteredCalcValueArr = calcValueArr.filter((item, i, arr) => {
-        return item === Symbols.DOT && arr[i - 1] !== Symbols.DOT && arr[i + 1] !== Symbols.DOT && (arr[i + 2] === Symbols.DOT || arr[i + 3] === Symbols.DOT);
+    const splitPattern = /[\s()*/%+-]+/g;
+    const calcValueWithoutLastOperator = replaceLastSimbolInStringWithOperator(calcValue, operator);
+    const calcValueArr = calcValueWithoutLastOperator.split(splitPattern);
+    let res = false;
+    calcValueArr.forEach(item => {
+        const dots = item.match(/\./g);
+        if (!dots) {
+            return;
+        }
+        if (dots.length >= 2) {
+            res = true;
+        }
     });
-    const hasTwoDots = filteredCalcValueArr.length >= 1 ? true : false;
-    return hasTwoDots;
+    return res;
 };
 const hasOperatorInEndOfString = (calcValue) => {
     const calcValueArr = String(calcValue).split('');

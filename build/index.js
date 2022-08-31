@@ -4,6 +4,8 @@ import { convertNumberValue, cleanValue } from './modules/numbers.js';
 import { Events, Operators, Strings, Symbols } from "./constants.js";
 import { convertValueWithOperator } from "./modules/opetators.js";
 let calcValue = '0';
+// Написать обработчик ошибок на декораторах
+// Реализовать попап с ошибкой 
 const handleNumberClick = (numberValue) => {
     const value = convertNumberValue(calcValue, numberValue);
     calcValue = value;
@@ -27,9 +29,14 @@ const handleEqualsClick = () => {
         calcValue = res;
         return screen.textContent = res;
     }
-    const result = eval(calcValue);
-    calcValue = result;
-    screen.textContent = calcValue;
+    try {
+        const result = eval(calcValue);
+        calcValue = result;
+        screen.textContent = calcValue;
+    }
+    catch (error) {
+        console.log(error); // !!!!!!!!!!!!
+    }
 };
 const handleMouseUp = (event) => {
     if (event.target.classList.contains('calculator__button')) {

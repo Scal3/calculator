@@ -7,6 +7,9 @@ import { convertValueWithOperator } from "./modules/opetators.js";
 let calcValue = '0';
 
 
+// Написать обработчик ошибок на декораторах
+// Реализовать попап с ошибкой 
+
 const handleNumberClick = (numberValue: string): void => {
   const value = convertNumberValue(calcValue, numberValue);
   calcValue = value;
@@ -34,9 +37,13 @@ const handleEqualsClick = (): string | void => {
     return screen.textContent = res;
   }
 
-  const result = eval(calcValue);
-  calcValue = result;
-  screen.textContent = calcValue;
+  try {
+    const result = eval(calcValue);
+    calcValue = result;
+    screen.textContent = calcValue;
+  } catch(error: any) {
+    console.log(error); // !!!!!!!!!!!!
+  }
 }
 
 const handleMouseUp = (event: any): void => {
