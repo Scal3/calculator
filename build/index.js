@@ -4,8 +4,6 @@ import { convertNumberValue, cleanValue } from './modules/numbers.js';
 import { Events, Operators, Strings, Symbols } from "./constants.js";
 import { convertValueWithOperator } from "./modules/opetators.js";
 let calcValue = '0';
-// Написать обработчик ошибок на декораторах
-// Реализовать попап с ошибкой 
 const handleNumberClick = (numberValue) => {
     if (calcValue.length >= 15) {
         screen.textContent = calcValue;

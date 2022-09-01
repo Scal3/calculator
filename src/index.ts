@@ -7,9 +7,6 @@ import { convertValueWithOperator } from "./modules/opetators.js";
 let calcValue = '0';
 
 
-// Написать обработчик ошибок на декораторах
-// Реализовать попап с ошибкой 
-
 const handleNumberClick = (numberValue: string): void => {
   if(calcValue.length >= 15) {
     screen.textContent = calcValue;
