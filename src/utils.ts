@@ -47,14 +47,24 @@ const replaceLastSimbolInStringWithOperator = (calcValue: string, operator: stri
 }
 
 const hasTwoDots = (calcValue: string, operator: string): boolean => {
-  const calcValueArr = String(calcValue).split('');
-  calcValueArr.push(operator);
-  const filteredCalcValueArr = calcValueArr.filter((item, i, arr) => {
-    return item === Symbols.DOT && arr[i-1] !== Symbols.DOT && arr[i+1] !== Symbols.DOT && (arr[i+2] === Symbols.DOT || arr[i+3] === Symbols.DOT)
-  });
-  const hasTwoDots = filteredCalcValueArr.length >= 1 ? true : false;
+  const splitPattern = /[\s()*/%+-]+/g;
+  const calcValueWithoutLastOperator = replaceLastSimbolInStringWithOperator(calcValue, operator);
+  const calcValueArr = calcValueWithoutLastOperator.split(splitPattern);
+  let res = false;
 
-  return hasTwoDots;
+  calcValueArr.forEach(item => {
+    const dots = item.match(/\./g);
+
+    if(!dots) {
+      return;
+    }
+
+    if(dots.length >= 2) {
+      res = true;
+    }
+  }) 
+
+  return res;
 }
 
 const hasOperatorInEndOfString = (calcValue: string): boolean => {
