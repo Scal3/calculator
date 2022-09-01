@@ -7,6 +7,10 @@ let calcValue = '0';
 // Написать обработчик ошибок на декораторах
 // Реализовать попап с ошибкой 
 const handleNumberClick = (numberValue) => {
+    if (calcValue.length >= 15) {
+        screen.textContent = calcValue;
+        return;
+    }
     const value = convertNumberValue(calcValue, numberValue);
     calcValue = value;
     screen.textContent = calcValue;
@@ -17,6 +21,10 @@ const handleCleanClick = () => {
     screen.textContent = calcValue;
 };
 const handleOperatorClick = (operator) => {
+    if (calcValue.length >= 15) {
+        screen.textContent = calcValue;
+        return;
+    }
     const value = convertValueWithOperator(calcValue, operator);
     calcValue = value;
     screen.textContent = calcValue;
@@ -31,7 +39,8 @@ const handleEqualsClick = () => {
     }
     try {
         const result = eval(calcValue);
-        calcValue = result;
+        const test = Number(result).toFixed(2);
+        calcValue = String(test);
         screen.textContent = calcValue;
     }
     catch (error) {

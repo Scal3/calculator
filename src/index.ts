@@ -11,6 +11,11 @@ let calcValue = '0';
 // Реализовать попап с ошибкой 
 
 const handleNumberClick = (numberValue: string): void => {
+  if(calcValue.length >= 15) {
+    screen.textContent = calcValue;
+    return;
+  }
+
   const value = convertNumberValue(calcValue, numberValue);
   calcValue = value;
   screen.textContent = calcValue;
@@ -23,6 +28,11 @@ const handleCleanClick = (): void => {
 }
 
 const handleOperatorClick = (operator: string): void => {
+  if(calcValue.length >= 15) {
+    screen.textContent = calcValue;
+    return;
+  }
+
   const value = convertValueWithOperator(calcValue, operator);
   calcValue = value;
   screen.textContent = calcValue;
@@ -39,7 +49,8 @@ const handleEqualsClick = (): string | void => {
 
   try {
     const result = eval(calcValue);
-    calcValue = result;
+    const test = Number(result).toFixed(2);
+    calcValue = String(test);
     screen.textContent = calcValue;
   } catch(error: any) {
     console.log(error); // !!!!!!!!!!!!
