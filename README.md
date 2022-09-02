@@ -15,4 +15,4 @@ Web-calculator - it's __my interpritation__ of calculator.
 
 ## Status - done!
 
-LINK - https://scal3.github.io/calculator/
+LINK - https://scal3.github.io/calculator/dist
