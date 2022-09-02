@@ -9,7 +9,7 @@ let calcValue = '0';
 
 
 const handleNumberClick = (numberValue: string): void => {
-  if(calcValue.length >= 15) {
+  if(calcValue.length >= 13) {
     screen.textContent = calcValue;
     return;
   }
@@ -26,7 +26,7 @@ const handleCleanClick = (): void => {
 }
 
 const handleOperatorClick = (operator: string): void => {
-  if(calcValue.length >= 15) {
+  if(calcValue.length >= 13) {
     screen.textContent = calcValue;
     return;
   }
