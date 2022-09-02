@@ -7,9 +7,9 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
+        use: 'babel-loader',
+        exclude: '/node_modules/'
+      }
     ],
   },
   resolve: {
@@ -18,5 +18,12 @@ module.exports = {
   output: {
     filename: 'script.js',
     path: path.resolve(__dirname, 'dist'),
+  },
+  mode: 'development',
+  devServer: {
+    static: path.resolve(__dirname, './dist'),
+    compress: true,
+    port: 8080,
+    open: true
   },
 };
