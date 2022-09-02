@@ -1,5 +1,5 @@
-import { classSelectors, ErrorsMessages } from "./constants.js";
-import { handleFindElementBySelector, handleFindSeveralElementsBySelector } from "./utils.js";
+import { classSelectors, ErrorsMessages } from "./constants";
+import { handleFindElementBySelector, handleFindSeveralElementsBySelector } from "./utils";
 
 
 const calcContainer = handleFindElementBySelector(

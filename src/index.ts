@@ -1,8 +1,9 @@
-import { buttons, screen } from "./selectors.js";
-import { hasOperatorInEndOfString, playSoundClick, setInitialScreenValue } from "./utils.js";
-import { convertNumberValue, cleanValue } from './modules/numbers.js';
-import { Events, Operators, Strings, Symbols } from "./constants.js";
-import { convertValueWithOperator } from "./modules/opetators.js";
+import './styles/index.css';
+import { buttons, screen } from "./selectors";
+import { hasOperatorInEndOfString, playSoundClick, setInitialScreenValue } from "./utils";
+import { convertNumberValue, cleanValue } from './modules/numbers';
+import { Events, Operators, Strings, Symbols } from "./constants";
+import { convertValueWithOperator } from "./modules/opetators";
 
 let calcValue = '0';
 

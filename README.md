@@ -6,6 +6,7 @@ Web-calculator - it's __my interpritation__ of calculator.
 * html
 * css
 * ts
+* webpack
 
 ## Addons 
 * Class names - BEM

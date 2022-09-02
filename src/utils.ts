@@ -1,9 +1,10 @@
-import { ErrorsMessages, ErrorsTypes, Operators, Symbols } from "./constants.js";
-import { handleExeptions } from "./modules/exeptions.js";
+import { ErrorsMessages, ErrorsTypes, Operators } from "./constants";
+import { handleExeptions } from "./modules/exeptions";
+import sound from './assets/click.wav';
 
 // Create sounds off
 const playSoundClick = (): void => {
-  const audio = new Audio('../assets/click.wav');
+  const audio = new Audio(sound);
   audio.volume = 0.1;
   audio.play();
 }
