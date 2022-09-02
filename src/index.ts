@@ -1,3 +1,4 @@
+import './styles/index.css';
 import { buttons, screen } from "./selectors";
 import { hasOperatorInEndOfString, playSoundClick, setInitialScreenValue } from "./utils";
 import { convertNumberValue, cleanValue } from './modules/numbers';
