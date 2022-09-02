@@ -13,6 +13,6 @@ Web-calculator - it's __my interpritation__ of calculator.
 * Flex and grid for layot
 * Mobile and desctop versions
 
-## Status - in dev
+## Status - done!
 
 LINK - https://scal3.github.io/calculator/
