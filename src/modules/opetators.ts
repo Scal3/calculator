@@ -1,5 +1,5 @@
-import { Numbers, Operators, Symbols } from "../constants.js";
-import { hasTwoDots, replaceLastSimbolInStringWithOperator } from "../utils.js";
+import { Numbers, Operators, Symbols } from "../constants";
+import { hasTwoDots, replaceLastSimbolInStringWithOperator } from "../utils";
 
 const convertValueWithOperator = (calcValue: string, operator: string): string => {
   if(hasTwoDots(calcValue, operator)) {

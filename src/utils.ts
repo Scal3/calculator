@@ -1,5 +1,5 @@
-import { ErrorsMessages, ErrorsTypes, Operators, Symbols } from "./constants.js";
-import { handleExeptions } from "./modules/exeptions.js";
+import { ErrorsMessages, ErrorsTypes, Operators } from "./constants";
+import { handleExeptions } from "./modules/exeptions";
 
 // Create sounds off
 const playSoundClick = (): void => {

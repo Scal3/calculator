@@ -1,4 +1,4 @@
-import {Numbers, Strings, Symbols} from '../constants.js';
+import {Numbers, Strings, Symbols} from '../constants';
 
 const convertNumberValue = (calcValue: string, numberValue: string): string => {
   const valArr = String(calcValue).split('');
