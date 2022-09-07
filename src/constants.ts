@@ -49,6 +49,29 @@ const classSelectors = {
   CALCULATOR_CONTAINER: '.calculator',
 }
 
+const htmlClasses = {
+  ONE: 'one',
+  TWO: 'two',
+  THREE: 'three',
+  FOUR: 'four',
+  FIVE: 'five',
+  SIX: 'six',
+  SEVEN: 'seven',
+  EIGHT: 'eight',
+  NINE: 'nine',
+  ZERO: 'zero',
+  DOT: 'dot',
+  BUTTON_C: 'button-c',
+  PLUS: 'plus',
+  MINUS: 'minus',
+  MULTIPLY: 'multiply',
+  DIVIDE: 'divide',
+  EQUALS: 'grid-equals',
+  ALL_BUTTONS: 'calculator__button',
+  SCREEN: 'calculator__screen-symbols',
+  CALCULATOR_CONTAINER: 'calculator',
+}
+
 enum ErrorsMessages {
   SCREEN_IS_LOST = 'screen is lost',
   CALCULATOR_CONTAINER_IS_LOST = 'caluclator container is lost',
@@ -72,5 +95,6 @@ export {
   Operators,
   Symbols,
   Events,
-  classSelectors
+  classSelectors,
+  htmlClasses
 }
